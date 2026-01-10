@@ -26,6 +26,8 @@ def calc_spearman_gender_survival (df):
     
     print(f"Spearman correlation: {corr:.4f}")
     print(f"p-value: {p_value:.4f}")
+    
+    return corr, p_value
 
 
 def plot_survival_by_gender(df):

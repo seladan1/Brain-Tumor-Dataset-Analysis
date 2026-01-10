@@ -6,8 +6,18 @@ def test_load_data_invalid_path():
     """Verify that the loader gracefully handles non-existent files."""
     assert load_data("non_existent.csv") is None
 
+
 def test_age_empty():
     empty_df = pd.DataFrame(columns=['Age', 'Survival Time (months)'])
     # אנחנו מצפים שזה יעלה שגיאה או יחזיר פלט ריק, תלוי בהתנהגות הרצויה
     with pytest.raises(Exception):
         clean_data(empty_df)
+
+
+# def test_missing_required_column():
+#     # Missing column should raise KeyError
+
+#     df = pd.DataFrame({"Gender": ["Male", "Female"]})
+
+#     with pytest.raises(KeyError):
+#         calc_spearman_gender_survival(df)
