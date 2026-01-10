@@ -27,9 +27,9 @@ def run_statistical_test(contingency_table):
     """
     chi2, p_val, dof, expected = chi2_contingency(contingency_table)
     if p_val < 0.05:
-        print(f"\nConclusion: Significant relationship found (p = {p_val:.4f})")
+        print(f"Conclusion: Significant relationship found (p = {p_val:.4f})")
     else:
-        print(f"\nConclusion: No significant relationship found (p = {p_val:.4f})")
+        print(f"Conclusion: No significant relationship found (p = {p_val:.4f})")
 
 
 def calculate_cramers_v(contingency_table):
@@ -45,7 +45,7 @@ def calculate_cramers_v(contingency_table):
     phi2 = chi2 / n
     # Formula for Cramer's V accounts for the dimensions of the table
     v = np.sqrt(phi2 / min(rows - 1, cols - 1))
-    print(f"Cramer's V calculated : {v:.4f}")
+    print(f"Cramer's V calculated: {v:.4f}")
 
 
 def distribution_plot(df):

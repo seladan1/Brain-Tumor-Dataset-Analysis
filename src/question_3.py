@@ -3,15 +3,33 @@ import seaborn as sns
 from scipy.stats import spearmanr
 
 
-def gender_survival_time (df):
-
+def calc_spearman_gender_survival (df):
+    # Calculates Spearman correlation and p-value between gender and survival time.
+    
     df["Gender_num"] = df["Gender"].map({"Male": 1, "Female": 0})
-
-    # Spearman correlation
     corr, p_value = spearmanr(df["Gender_num"], df["Survival Time (months)"])
+    
+    # Final conclusion.
+    if abs(corr) < 0.2:
+        strength = "very weak"
+    elif abs(corr) < 0.4:
+        strength = "weak"
+    else:
+        strength = "moderate to strong"
 
-    print("Spearman correlation:", round(corr, 3))
-    print("p-value:", round(p_value, 4))
+    significance = "statistically significant" if p_value < 0.05 else "not statistically significant"
+
+    print(
+        f"Conclusion: There is a {strength} relationship between gender and survival time, "
+        f"and the result is {significance}."
+    )
+    
+    print(f"Spearman correlation: {corr:.4f}")
+    print(f"p-value: {p_value:.4f}")
+
+
+def plot_survival_by_gender(df):
+    # Creates a box plot of survival time by gender.
     
     plt.figure(figsize=(10, 6))
 

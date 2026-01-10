@@ -10,9 +10,9 @@ def calc_correlation(df):
     r_val, p_val = stats.pearsonr(grouped['Age'], grouped['Survival Time (months)'])
     
     if p_val < 0.05:
-        print(f"\nConclusion: Even after grouping, a significant trend exists. (P-value: {p_val:.4f})")
+        print(f"Conclusion: Even after grouping, a significant trend exists. (P-value: {p_val:.4f})")
     else:
-        print(f"\nConclusion: No significant trend exists. Age does not predict average survival. (P-value: {p_val:.4f})")
+        print(f"Conclusion: No significant trend exists. Age does not predict average survival. (P-value: {p_val:.4f})")
     print(f"Correlation (r) of averages: {r_val:.4f}")
         
     return grouped
