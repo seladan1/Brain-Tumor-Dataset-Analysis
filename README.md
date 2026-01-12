@@ -17,16 +17,34 @@ This project provides a comprehensive clinical analysis of brain tumor patient d
 ---
 
 ### **Folder/Module Structure**
-The project is organized into a main execution script and a specialized source directory for modularity:
 
-* **`main.py`**: The primary entry point that coordinates the data cleaning, analysis, and visualization workflow.
-* **`src/`**: A module containing specialized scripts for different research questions:
-    * `clean_data.py`: Functions for loading and cleaning the raw dataset.
-    * `predict_recurrence_gui.py`: A GUI-based tool for recurrence analysis.
-    * `question_2.py`: Statistical analysis of age vs. survival.
-    * `question_3.py`: Spearman correlation and survival plots by gender.
-    * `question_4.py`: Distribution analysis of treatment outcomes.
-    * `question_5.py`: Statistical testing for tumor type and grade.
+The project is organized with a clear separation between the main execution scripts, source logic, and tests:
+
+```text
+C:.
+│   BrainTumor.csv
+│   main.py
+│   requirements.txt
+│
+├───.vscode
+│       settings.json
+│
+├───src
+│       clean_data.py
+│       gui_graphic_utils.py
+│       predict_recurrence_gui.py
+│       question_2.py
+│       question_3.py
+│       question_4.py
+│       question_5.py
+│
+└───tests
+        predict_recurrence_gui_test.py
+        test_2.py
+        test_3.py
+        test_4.py
+        test_5.py
+        test_clean_data.py
 
 ---
 
@@ -90,3 +108,11 @@ Execute the main script to process the data and generate the statistical visuali
 ```bash
 python main.py
 ```
+
+### 4. Run the tests
+To verify the project logic, you can run the tests suite using `pytest`:
+
+```bash
+pytest
+```
+
