@@ -79,9 +79,14 @@ Ensure you have Python installed, then run the following command to install requ
 
 ```bash
 pip install -r requirements.txt
+---
 
 ### **2. Prepare the Data
-Ensure the BrainTumor.csv file is located in the root directory alongside `main.py`.
+Ensure the `BrainTumor.csv` file is located in the root directory alongside `main.py`.
+
+### **3. Run the Analysis
+Execute the main script to process the data and generate the statistical visualizations:
 
 ```bash
 python main.py
+---
