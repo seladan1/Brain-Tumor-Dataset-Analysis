@@ -1,80 +1,87 @@
-# Brain Tumor Clinical Data Analysis Project
+# Brain Tumor Clinical Data Analysis
 
 ## **Project Documentation**
 
 ### **Project Description**
-This project focuses on the statistical analysis and visualization of clinical data for patients diagnosed with brain tumors. The analysis explores correlations between patient demographics, tumor characteristics, and treatment efficacy to better understand survival and recurrence patterns.
+This project provides a comprehensive clinical analysis of brain tumor patient data, focusing on survival rates, recurrence patterns, and treatment efficacy. 
 
 * **Main Objectives:**
-    * **Recurrence Prediction:** Analyze the probability of tumor recurrence and predict the recurrence site based on the initial tumor location.
-    * **Age and Survival Correlation:** Investigate whether there is a significant correlation between patient age and total survival time.
-    * **Gender and Survival Analysis:** Determine if survival time is influenced by the patient's gender using Spearman correlation.
-    * **Treatment Outcome Prediction:** Assess the distribution of outcomes based on the specific treatment protocol used.
-    * **Tumor Grading Analysis:** Evaluate if the tumor type can act as a predictor for the tumor grade at the time of initial diagnosis.
-* **Assumptions:** **Missing**.
-* **Hypothesis:** **Missing**.
+    * **Recurrence Prediction:** Predict the chances of tumor recurrence and the specific recurrence site based on the tumor's initial location.
+    * **Age & Survival Correlation:** Analyze if a correlation exists between survival time and the age of the patient at the time of diagnosis.
+    * **Gender Analysis:** Investigate potential connections between survival time and the patient's gender.
+    * **Treatment Efficacy:** Predict treatment outcomes based on the specific treatment protocol used.
+    * **Tumor Grading:** Determine if the tumor type can predict the tumor grade at the initial diagnosis.
+* **Assumptions:** Missing.
+* **Hypothesis:** Missing.
 
 ---
 
-### **Folder and Module Structure**
-The project is divided into a main execution script and a source folder containing specialized modules:
+### **Folder/Module Structure**
+The project is organized into a main execution script and a specialized source directory for modularity:
 
-* **`main.py`**: The central entry point that manages data loading, cleaning, and the sequential execution of research questions.
-* **`src/`**: Contains the core analytical logic:
-    * `clean_data.py`: Functions for loading raw CSV data and performing data cleaning.
-    * `predict_recurrence_gui.py`: Provides a GUI for recurrence analysis (Question 1).
-    * `question_2.py` - `question_5.py`: Modular scripts handling specific statistical tests and plotting for each research objective.
+* **`main.py`**: The primary entry point that coordinates the data cleaning, analysis, and visualization workflow.
+* **`src/`**: A module containing specialized scripts for different research questions:
+    * `clean_data.py`: Functions for loading and cleaning the raw dataset.
+    * `predict_recurrence_gui.py`: A GUI-based tool for recurrence analysis.
+    * `question_2.py`: Statistical analysis of age vs. survival.
+    * `question_3.py`: Spearman correlation and survival plots by gender.
+    * `question_4.py`: Distribution analysis of treatment outcomes.
+    * `question_5.py`: Statistical testing for tumor type and grade.
 
 ---
 
 ### **Key Stages**
-1.  **Data Import:** Ingesting raw patient data from the `BrainTumor.csv` file.
-2.  **Data Processing:** Cleaning the dataset, handling missing values (NA), and formatting data types for analysis.
-3.  **Modeling & Analysis:**
-    * Calculating Spearman correlation coefficients for survival analysis.
-    * Conducting statistical tests and calculating Cramer's V for categorical associations.
-4.  **Visualization:** Generating distribution plots, histograms, and scatter plots using `matplotlib` and `seaborn` to visualize clinical findings.
+1.  **Data Import:** Raw clinical data is loaded from the `BrainTumor.csv` file.
+2.  **Data Processing:** The dataset is cleaned to handle missing values (NAs) and ensure proper data types for analysis.
+3.  **Modeling & Statistical Analysis:**
+    * Calculating Spearman correlations for survival time.
+    * Conducting statistical tests and calculating Cramer's V for categorical variables.
+    * Generating outcome distributions and probability summaries.
+4.  **Visualization:** Creating insightful charts including histograms, scatter plots, and distribution plots using `matplotlib` and `seaborn`.
 
 ---
 
-### **Important Definitions & Configurations**
-* **`FILE_PATH`**: The dataset filename is defined as `BrainTumor.csv`.
-* **Backend**: The project explicitly uses the `TkAgg` backend for `matplotlib` to ensure proper GUI rendering.
-* **Dataset Integrity**: The script includes a check to abort analysis if the dataset fails to load or clean correctly.
+### **Important Definitions**
+* **`FILE_PATH`**: The system is configured to look for `BrainTumor.csv` in the root directory.
+* **Matplotlib Backend:** The project utilizes the `TkAgg` backend for graphical rendering.
+* **Treatment Outcomes:** Includes outcomes such as "Complete response," "Partial response," "Stable disease," and "Progressive disease".
 
 ---
 
 ## **Data Description**
-The analysis is performed on a clinical dataset. The dataset includes the following key columns:
+The analysis is based on a clinical dataset including the following key parameters:
 
 | Column Name | Description |
 | :--- | :--- |
-| **Patient ID** | Unique identifier for the patient. |
-| **Age** | Age at diagnosis. |
-| **Gender** | Patient gender (Male/Female). |
-| **Tumor Type** | Pathological type (e.g., Glioblastoma, Meningioma, Astrocytoma). |
+| **Patient ID** | Unique identifier for each patient record. |
+| **Age** | Age of the patient at diagnosis. |
+| **Gender** | Patient's gender (Male/Female). |
+| **Tumor Type** | Pathological classification (e.g., Glioblastoma, Meningioma, Astrocytoma). |
 | **Tumor Grade** | Grade from I to IV. |
-| **Tumor Location** | Initial site of the tumor. |
-| **Treatment** | Protocols including Surgery, Radiation, and Chemotherapy. |
-| **Treatment Outcome** | Results such as "Complete response" or "Progressive disease". |
+| **Tumor Location** | Initial site of the tumor (e.g., Frontal lobe, Temporal lobe). |
+| **Treatment** | Protocols used such as Surgery, Radiation, and Chemotherapy. |
+| **Treatment Outcome** | Clinical result of the chosen treatment. |
 | **Survival Time** | Total survival measured in months. |
 
-**Link to the Dataset:** **Missing**.
+**Link to the Dataset:** Missing.
 
 ---
 
 ## **References**
-* **Papers or Articles Used:** **Missing**.
+* **Papers/Articles:** Missing.
 
 ---
 
 ## **Instructions for Running the Project**
 
-### **1. Install Prerequisites**
-Ensure you have Python installed. You can install all necessary libraries using the provided `requirements.txt` file:
+### **1. Install Dependencies**
+Ensure you have Python installed, then run the following command to install required libraries from the `requirements.txt` file:
 
 ```bash
 pip install -r requirements.txt
+
+### **2. Prepare the Data
+Ensure the BrainTumor.csv file is located in the root directory alongside `main.py`.
 
 ```bash
 python main.py
