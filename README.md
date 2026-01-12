@@ -63,7 +63,7 @@ The analysis is based on a clinical dataset including the following key paramete
 | **Treatment Outcome** | Clinical result of the chosen treatment. |
 | **Survival Time** | Total survival measured in months. |
 
-**Link to the Dataset:** Missing.
+**Link to the Dataset:** https://www.kaggle.com/datasets/thegoanpanda/brain-tumor-stage-based-recurrence-patterns/data [BrainTumor dataset](https://www.kaggle.com/datasets/thegoanpanda/brain-tumor-stage-based-recurrence-patterns/data)
 
 ---
 
@@ -81,10 +81,10 @@ Ensure you have Python installed, then run the following command to install requ
 pip install -r requirements.txt
 ```
 
-### **2. Prepare the Data
+### 2. Prepare the Data
 Ensure the `BrainTumor.csv` file is located in the root directory alongside `main.py`.
 
-### **3. Run the Analysis
+### 3. Run the Analysis
 Execute the main script to process the data and generate the statistical visualizations:
 
 ```bash
