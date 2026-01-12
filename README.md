@@ -55,7 +55,7 @@ C:.
     * Calculating Spearman correlations for survival time.
     * Conducting statistical tests and calculating Cramer's V for categorical variables.
     * Generating outcome distributions and probability summaries.
-4.  **Visualization:** Creating insightful charts including histograms, scatter plots, and distribution plots using `matplotlib` and `seaborn`.
+4.  **Visualization:** Creating insightful charts including histograms, scatter plots, and distribution plots using `gui`, `matplotlib` and `seaborn`.
 
 ---
 
