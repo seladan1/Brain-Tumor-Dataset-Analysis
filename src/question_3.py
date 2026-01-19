@@ -55,25 +55,35 @@ def plot_survival_by_gender(df):
 
     plt.show()
 
-# checking the outliers that were found in the graph.
-def analyze_long_survivors(df, survival_threshold = 72):
-    # Find patients with unusually long survival time
-    
-    outliers = df[df["Survival Time (months)"] >= survival_threshold]
+# checking the impact of the outliers that were found in the graph.
+def spearman_outlier_impact(df, threshold=72):
+    # Encode gender
+    df = df.copy()
+    df["Gender_num"] = df["Gender"].map({"Male": 1, "Female": 0})
 
-    print(f"Number of long survivors (≥ {survival_threshold} months): {len(outliers)}\n")
+    # Spearman with all data
+    corr_all, p_all = spearmanr(
+        df["Gender_num"],
+        df["Survival Time (months)"]
+    )
 
-    if outliers.empty:
-        print("No long-survival outliers found.")
-        return outliers
+    # Remove long-survival outliers
+    df_no_outliers = df[df["Survival Time (months)"] < threshold]
 
-    print("Common characteristics among long survivors:\n")
+    corr_no, p_no = spearmanr(
+        df_no_outliers["Gender_num"],
+        df_no_outliers["Survival Time (months)"]
+    )
 
-    for column in outliers.columns:
-        if column != "Survival Time (months)":
-            print(f"{column}:")
-            print(outliers[column].value_counts())
-            print()
+    print("Effect of long-survival outliers (≥ 72 months):\n")
+    print(f"With outliers    → Spearman: {corr_all:.4f}, p-value: {p_all:.4f}")
+    print(f"Without outliers → Spearman: {corr_no:.4f}, p-value: {p_no:.4f}")
 
-    return outliers
+    return {
+        "with_outliers": (corr_all, p_all),
+        "without_outliers": (corr_no, p_no),
+        "n_outliers": len(df) - len(df_no_outliers)
+    }
+
+
 
