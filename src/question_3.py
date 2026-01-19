@@ -55,3 +55,25 @@ def plot_survival_by_gender(df):
 
     plt.show()
 
+# checking the outliers that were found in the graph.
+def analyze_long_survivors(df, survival_threshold = 72):
+    # Find patients with unusually long survival time
+    
+    outliers = df[df["Survival Time (months)"] >= survival_threshold]
+
+    print(f"Number of long survivors (≥ {survival_threshold} months): {len(outliers)}\n")
+
+    if outliers.empty:
+        print("No long-survival outliers found.")
+        return outliers
+
+    print("Common characteristics among long survivors:\n")
+
+    for column in outliers.columns:
+        if column != "Survival Time (months)":
+            print(f"{column}:")
+            print(outliers[column].value_counts())
+            print()
+
+    return outliers
+
