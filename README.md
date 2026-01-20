@@ -11,8 +11,16 @@ This project provides a comprehensive clinical analysis of brain tumor patient d
     * **Gender Analysis:** Investigate potential connections between survival time and the patient's gender.
     * **Treatment Efficacy:** Predict treatment outcomes based on the specific treatment protocol used.
     * **Tumor Grading:** Determine if the tumor type can predict the tumor grade at the initial diagnosis.
-* **Assumptions:** Missing.
-* **Hypothesis:** Missing.
+
+### **Hypothesis**
+* **Treatment Outcome Prediction:** The initial hypothesis was that treatment outcomes could be predicted based on the protocol used. This hypothesis was proven correct. The system computes outcome probabilities for each treatment using cross-tabulation, which allows for a fair and statistically sound comparison between different treatment methods.
+
+### **Assumptions**
+During the analysis, several initial assumptions were tested against the clinical data:
+
+* **Age vs. Survival Time:** It was assumed that there is a significant connection between a patient's age and their survival time. However, the results indicated that no such connection exists.
+* **Gender vs. Survival Time:** The assumption was that survival time might differ based on the patient's gender. The analysis showed only a very weak connection, suggesting gender is not a strong predictor of survival in this context.
+* **Tumor Type vs. Grade:** The initial assumption was that tumor type would not be able to predict the tumor grade. Contrary to this, the results showed a clear relationship, where specific tumor types are consistently associated with specific grades.
 
 ---
 
